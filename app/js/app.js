@@ -1,8 +1,8 @@
 $( document ).ready(function() {
 
     //Style variables -----------------------------------------------
-    var current_font = "main_space";
-    var current_col = "main_purple";
+    var current_font = "main_kumbh";
+    var current_col = "main_red";
     var chosen_font = "";
     var chosen_col = "";
 
