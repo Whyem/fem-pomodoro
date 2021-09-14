@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Roboto+Slab:wght@700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">  
+  <link rel="icon" type="image/svg" sizes="32x32" href="./assets/tomato.svg">
+  <link rel="stylesheet" href="dist/style.css">
+  
+  <title>Frontend Mentor | Pomodoro app</title>
+</head>
+<body class="main_red main_kumbh">
+  
+  <img src="assets/logo.svg" class="logo" alt="pomodoro">
+  
+  <div style="display: inline-block;">
+    <div class="flex flex--jc flex--ai timers">
+      <button class="timer_type pomodoro_timer active initial">pomodoro</button>
+      <button class="timer_type sb_timer ">short break</button>
+      <button class="timer_type lb_timer">long break</button>
+    </div>
+  </div>
+
+  <div class="timer_container">
+    <div class="outer_circle">
+      <button class="inner_circle">
+        <div class="text_container">
+          <h1>17:59</h1>
+          <p class="pause_text">start</p>
+        </div>
+        <svg>
+          <!-- Desktop Timers -->
+          <circle class="circle_time pomodoro hide-for-mobile" r="165" cx="183" cy="183"></circle>
+          <circle class="circle_time short_break hide-for-mobile" r="165" cx="183" cy="183"></circle>
+          <circle class="circle_time long_break hide-for-mobile" r="165" cx="183" cy="183"></circle>
+
+          <!-- Mobile Timers -->
+          <circle class="circle_time pomodoro hide-for-desktop" r="115" cx="120" cy="120"></circle>
+          <circle class="circle_time short_break hide-for-desktop" r="115" cx="120" cy="120"></circle>
+          <circle class="circle_time long_break hide-for-desktop" r="115" cx="120" cy="120"></circle>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <button class="settings_btn">
+    <img src="assets/icon-settings.svg" alt="gear">
+  </button>
+  
+  <div class="settings" style="display: none;">
+    <div class="settings_header flex flex--ai flex--jsb">
+      <h2>Settings</h2>
+      <button class="settings_close">
+        <img src="assets/icon-close.svg" alt="close">
+      </button>
+    </div>
+    <div class="settings_content">
+      <div class="setting_row">
+        
+        <h3>time (minutes)</h3>
+
+        <div class="fd-bm flex--ai">
+          <div class="timer_setting fm-bd flex--ai flex--jsb ">
+            <p>pomodoro</p>
+            
+            <div style="position: relative;">
+              <input type="number" id="pomodoro" value="1">
+            
+              <div class="buttons">
+                <button class="input_btn add">
+                  <img src="assets/icon-arrow-up.svg" alt="arrow-up">
+                </button>
+                <button class="input_btn subtract">
+                  <img src="assets/icon-arrow-down.svg" alt="arrow-up">
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="timer_setting fm-bd flex--ai flex--jsb">
+            <p>short break</p>
+            <div style="position: relative;">
+              <input type="number" id="short_break" value="2">
+            
+              <div class="buttons">
+                <button class="input_btn add">
+                  <img src="assets/icon-arrow-up.svg" alt="arrow-up">
+                </button>
+                <button class="input_btn subtract">
+                  <img src="assets/icon-arrow-down.svg" alt="arrow-up">
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="timer_setting fm-bd flex--ai flex--jsb">
+            <p>long break</p>
+            <div style="position: relative;">
+              <input type="number" id="long_break" value="3">
+            
+              <div class="buttons">
+                <button class="input_btn add"></button>
+                <button class="input_btn subtract"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="setting_row fd-bm flex--ai flex--jsb ">
+        <h3>font</h3>
+        <div class="flex flex--ai checks">
+          <button class="property_btn font_pb kumbh">Aa</button>
+          <button class="property_btn font_pb roboto">Aa</button>
+          <button class="property_btn font_pb space">Aa</button>
+        </div>
+      </div>
+
+      <div class="setting_row no-border fd-bm flex--ai flex--jsb ">
+        <h3>color</h3>
+        <div class="flex flex--ai checks">
+          <button class="property_btn color_pb red">
+            <img src="assets/check.svg" alt="check">
+          </button>
+          <button class="property_btn color_pb cyan">
+            <img src="assets/check.svg" alt="check">
+          </button>
+          <button class="property_btn color_pb purple">
+            <img src="assets/check.svg" alt="check">
+          </button> 
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="apply_btn">Apply</button>
+      </div>
+    </div>
+  </div>
+
+
+  <svg class="original_circles" style="display: none">
+    <circle class="circle_time pomodoro hide-for-mobile" r="165" cx="183" cy="183"></circle>
+    <circle class="circle_time short_break hide-for-mobile" r="165" cx="183" cy="183"></circle>
+    <circle class="circle_time long_break hide-for-mobile" r="165" cx="183" cy="183"></circle>
+
+    <circle class="circle_time pomodoro hide-for-desktop" r="115" cx="120" cy="120"></circle>
+    <circle class="circle_time short_break hide-for-desktop" r="115" cx="120" cy="120"></circle>
+    <circle class="circle_time long_break hide-for-desktop" r="115" cx="120" cy="120"></circle>
+  </svg>
+
+  <div class="original_buttons" style="display: none;">
+    <button class="timer_type pomodoro_timer">pomodoro</button>
+    <button class="timer_type sb_timer ">short break</button>
+    <button class="timer_type lb_timer">long break</button>
+  </div>
+  
+
+
+  <script src="app/js/app.js"></script>
+</body>
+</html>

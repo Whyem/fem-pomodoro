@@ -1,0 +1,240 @@
+.timers{
+    background-color: $darkBlueish;
+    border-radius: 50px; 
+    padding: 7px;
+    margin-bottom: 45px;
+    display: inline-block;
+
+    @include breakpoint-down(){
+      padding: 7px 6px;
+    }
+}
+
+.timer_type{
+    padding: 19px 26px;
+    color: #636984;
+    font-family: var(--ff);
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    z-index: 1;
+
+    &.active{
+      color: $darkBlueish;
+    }
+
+    &.initial{
+      &:before {
+        width: 100%;
+        left: 0;
+      }
+    }
+
+    
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--col);
+      border-radius: 50px;
+      z-index: -1;
+    }
+
+    &.nodelay{
+      &:before {
+        animation-delay: 0s !important;
+      }
+    }
+
+    &.delay{
+      &:before {
+        animation-delay: 150ms !important;
+      }
+    }
+
+    &.reverse{
+      &:before {
+        animation-direction: reverse !important;
+      }
+    }
+
+    @include breakpoint-down(){
+      font-size: 12px;
+      padding: 18px 15px;
+    }
+    
+}
+
+.outer_circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 410px;
+  height: 410px;
+  margin: 0 auto;
+  margin-bottom: 63px;
+  background: linear-gradient(-40deg, rgba(46,50,90,1) 0%, $darkBlueish 80%);
+  box-shadow: 20px 20px 20px #161932, -20px -20px 20px #2e325a;
+
+  @include breakpoint-down(){
+    width: 300px;
+    height: 300px;
+    margin-bottom: 80px;
+  }
+}
+
+
+.inner_circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  width: 366px;
+  height: 366px;
+  background-color: $darkBlueish;
+  position: relative;
+  cursor: pointer;
+
+  @include breakpoint-down(){
+    width: 267.8px;
+    height: 267.8px;
+  }
+
+  &:hover{
+    &>.text_container>.pause_text{
+      color: var(--col);
+    }
+  }
+}
+
+.pause_text{
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 15px;
+  color: $lightGrey;
+}
+
+
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 366px;
+  height: 366px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+
+  @include breakpoint-down(){
+    width: 248px;
+    height: 248px;
+    top: 7px;
+    left: 6px;
+  }
+}
+
+svg circle {
+  stroke-dasharray: 1036px;
+  stroke-dashoffset: -1036px;
+  stroke-linecap: round;
+  stroke-width: 10px;
+  stroke: var(--col);
+  fill: none;
+
+  @include breakpoint-down(){
+    stroke-width: 7px;
+    stroke-dasharray: 722px;
+    stroke-dashoffset: -722px;
+  }
+
+} 
+
+@keyframes countdown {
+  to{
+    stroke-dashoffset: 0px;
+  }
+}
+
+.toleft_lb{
+  &::before{
+    animation: toleft_lb 150ms linear forwards;
+  }
+}
+
+.toleft_sb{
+  &::before{
+    animation: toleft_sb 300ms linear forwards;
+  }
+}
+
+.toright_sb{
+  &::before{
+    animation: toright_sb 150ms linear forwards;
+  }
+}
+
+.toleft_p{
+  &::before{
+    animation: toleft_p 150ms linear forwards;
+    animation-delay: 150ms;
+  }
+}
+
+
+@keyframes toleft_lb {
+  0%{
+    left: 0;
+    width: 100%;
+  }
+
+  100%{
+    left: -100%;
+    width: 100%;
+  }
+}
+
+@keyframes toleft_sb {
+  0%{
+    right: -100%;
+    width: 100%;
+  }
+
+
+  100%{
+    right: 100%;
+    width: 100%;
+  }
+}
+
+@keyframes toright_sb {
+  0%{
+    left: -100%;
+    width: 100%;
+  }
+
+
+  100%{
+    left: 0;
+    width: 100%;
+  }
+}
+
+@keyframes toleft_p {
+  0%{
+    right: -100%;
+    width: 100%;
+  }
+
+
+  100%{
+    right: 0;
+    width: 100%;
+  }
+}

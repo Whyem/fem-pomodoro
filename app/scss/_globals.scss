@@ -1,0 +1,195 @@
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*:focus{
+    outline: none;
+}
+
+:root{
+    font-weight: 18px;
+}
+
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.1;
+    font-family: var(--ff);
+    color: $darkGrey;
+    background-color: $lightBlueish;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+}
+
+img{
+    display: block;
+}
+
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+h1, h2 , h4, p, small, ul{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    margin: 0 auto;
+    margin-bottom: 52px;
+    margin-top: 48px;
+
+    @include breakpoint-down(){
+        margin-top: 28px;
+        margin-bottom: 45px;
+    }
+}
+
+h1{
+    font-weight: bold;
+    font-size: 91px;
+    color: #EFF1FA;
+    margin-bottom: 40px;
+    font-family: var(--ff);
+
+    @include breakpoint-down(){
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+    
+}
+
+h2{
+    font-weight: bold;
+    font-size: 28px;
+    color: $darkBlueish;
+
+    @include breakpoint-down(){
+        font-size: 20px;
+    }
+}
+
+h3{
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: $darkBlueish;
+
+    @include breakpoint-down(){
+        text-align: center;
+        margin-bottom: 18px;
+    }
+}
+
+
+.flex{
+    display: flex;
+
+    &--row{
+        flex-direction: row;
+    }
+
+    &--jc{
+        justify-content: center;
+    }
+
+    &--jcfs{
+        justify-content: flex-start;
+    }
+
+    &--jcfe{
+        justify-content: flex-end;
+    }
+
+    &--jsb{
+        justify-content: space-between;
+    }
+
+    &--ai{
+        align-items: center;
+    }
+
+    &--as{
+        align-items: flex-start;
+    }
+}
+
+//a helper class fd-bm == Flex for Desktop and Block for Mobile------
+.fd-bm{
+    display: flex;
+
+    @include breakpoint-down(){
+        display: block;
+    }
+}
+
+.fm-bd{
+    display: flex;
+
+    @include breakpoint-up(){
+        display: block;
+    }
+}
+
+.container{
+    padding-left: 10.25rem;
+    padding-right: 10.25rem;
+
+    @include breakpoint-down(){
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+.noscroll{
+    overflow: hidden;
+}
+
+
+//Visibility
+.hide-for-mobile{
+    @include breakpoint-down{
+        display: none;
+    }
+}
+
+.hide-for-desktop{
+    @include breakpoint-up{
+        display: none;
+    }
+}
+
+.main_kumbh{
+    --ff: 'Kumbh Sans', sans-serif;
+}
+
+.main_roboto{
+    --ff: 'Roboto Slab', serif;
+}
+
+.main_space{
+    --ff: 'Space Mono', monospace;
+}
+
+.main_red{
+    --col : #F87070;
+}
+
+.main_cyan{
+    --col : #70F3F8;
+}
+
+.main_purple{
+    --col : #D881F8;
+}
